@@ -1,22 +1,30 @@
 const backToTopDOM = document.querySelector('.back-to-top');
 const stickyDOM = document.querySelector('header');
 //console.log(backToTopDOM);
-console.log(stickyDOM);
+//console.log(stickyDOM);
+let wasStickyAtLeastOneTime = false;
+let notStickyTimer = null;
 
 window.addEventListener('scroll', () => {
     if (scrollY > 500) {
         backToTopDOM.classList.remove('hide');
-    }
-    else {
+    } else {
         backToTopDOM.classList.add('hide');
     }
-    if (scrollY > 150) {
+    if (scrollY > 150) {                // kai leidziames i apacia
+        wasStickyAtLeastOneTime = true;
         stickyDOM.classList.add('sticky')   // jei zemiau 150 ribos, parodyk
         stickyDOM.classList.remove('notSticky');
-    }
-    else {
+    } else {
         stickyDOM.classList.remove('sticky');  // jei zemiau 150 ribos, paslepk
-        stickyDOM.classList.add('notSticky');
+        if (wasStickyAtLeastOneTime) {
+            stickyDOM.classList.add('notSticky');
+
+            notStickyTimer = setTimeout(() => {
+                stickyDOM.classList.remove('notSticky');
+                wasStickyAtLeastOneTime = false;
+            }, 2000)
+        }
     }
     // console.log('scrolling...');
 })

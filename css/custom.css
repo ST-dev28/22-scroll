@@ -14,7 +14,6 @@ header.sticky {
   right: 0;
   animation-name: headerSlideOut;
   animation-duration: 2s;
-  animation-fill-mode: forwards;
 }
 header.sticky + * {
   margin-top: 60px;
