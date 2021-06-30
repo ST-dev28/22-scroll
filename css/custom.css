@@ -12,9 +12,20 @@ header.sticky {
   top: 0;
   left: 0;
   right: 0;
+  animation-name: headerSlideOut;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 header.sticky + * {
   margin-top: 60px;
+}
+header.notSticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  animation-name: headerSlideIn;
+  animation-duration: 2s;
 }
 
 main {
@@ -53,4 +64,34 @@ article > footer {
 }
 .back-to-top.hide {
   display: none;
+}
+form {
+  display: inline-block;
+  width: 100%;
+}
+textarea {
+  display: inline-block;
+  width: 100%;
+  height: 200px;
+  font-size: 20px;
+}
+@keyframes headerSlideOut {
+  0% {
+    /*top: -150px;*/
+    transform: translateY(-100%);
+  }
+  100% {
+    /*top: 0;*/
+    transform: translateY(0%);
+  }
+}
+@keyframes headerSlideIn {
+  0% {
+    /*top: 0;*/
+    transform: translateY(0%);
+  }
+  100% {
+    /*top: -150px;*/
+    transform: translateY(-100%);
+  }
 }
