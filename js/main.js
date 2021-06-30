@@ -23,7 +23,7 @@ window.addEventListener('scroll', () => {
             notStickyTimer = setTimeout(() => {
                 stickyDOM.classList.remove('notSticky');
                 wasStickyAtLeastOneTime = false;
-            }, 2000)
+            }, 500)
         }
     }
     // console.log('scrolling...');
